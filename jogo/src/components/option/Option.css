@@ -15,3 +15,11 @@
 #option-container .option p{
     margin-bottom: 0;
 }
+.correct{
+background-color: #0bfc0b;
+font-weight: bold;
+}
+.erro {
+    background-color: #3c0e70;
+    opacity: o.4;
+    }
