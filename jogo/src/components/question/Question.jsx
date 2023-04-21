@@ -9,7 +9,12 @@ import Option from '../option/Option'
 export const Question = () => {
   const [quizState, dispatch] = useContext(QuizContext);
   const currentQuestion = quizState.questions[quizState.currentQuestion];
-  const onSelectOption = () => { console.log('teste') }
+  const onSelectOption = (option) => {
+    dispatch({
+      type: 'CHECK_ANSWER',
+      payload: { answer: currentQuestion.answer, option }
+    })
+  }
 
   return (
     <div id='question'>
@@ -24,13 +29,14 @@ export const Question = () => {
             option={option}
             key={option}
             answer={currentQuestion.answer}
-            selectOption = {() => onSelectOption ()}
+            selectOption={() => onSelectOption(option)}
 
           />
         ))}
       </div>
-      {quizState.answersElected && (
-        <button onClick={() => dispatch({ type: "CHANGE_QUESTION" })}>Continuar</button>
+      {quizState.answerSelected && (
+        <button onClick={() => dispatch({ type: "CHANGE_QUESTION" })}
+        >Continuar</button>
       )}
     </div>
   )
