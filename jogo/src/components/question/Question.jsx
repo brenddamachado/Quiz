@@ -2,19 +2,30 @@ import React from 'react'
 import { useContext } from 'react'
 import { QuizContext } from '../../context/Quiz'
 import './Question.css'
+import Option from '../option/Option'
+
+
+
 export const Question = () => {
-    const [quizStart, dispatch]  = useContext(QuizContext)
-const pergunta = quizStart.questions[quizStart.currentQuestion ]
+  const [quizState, dispatch] = useContext(QuizContext);
+  const currentQuestion = quizState.questions[quizState.currentQuestion];
+
+
   return (
     <div id='question'>
-        <p>
-            Pegunta {quizStart.currentQuestion +1} de {quizStart.questions.length}
-        </p>
-        <h2>{pergunta.question}</h2>
-        <div id="options-container">
-            <p>Opções</p>
-        </div>
-       <button onClick={() => dispatch({type: "CHANGE_QUESTION"})}>Continuar</button> 
+      <p>
+        Pegunta {quizState.currentQuestion + 1} de {quizState.questions.length}
+      </p>
+   
+      <h2>{currentQuestion.question}</h2>
+      <div id="options-container">
+      {currentQuestion.options.map((option) => (
+          <Option
+            option={option}  key={option}
+          />
+        ))}
+      </div>
+      <button onClick={() => dispatch({ type: "CHANGE_QUESTION" })}>Continuar</button>
     </div>
   )
 }

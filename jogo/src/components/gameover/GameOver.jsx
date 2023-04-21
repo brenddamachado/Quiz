@@ -13,7 +13,7 @@ const GameOver = () => {
 <p>Você acertou {quizStart.score} de {quizStart.questions.length} 
 {''} perguntas.</p>
 <img src={WellDone} alt="fim do jogo" />
-<button> Reiniciar</button>
+<button onClick={() => dispatch ({type: "NEW_GAME"})}> Reiniciar</button>
     </div>
   )
 }

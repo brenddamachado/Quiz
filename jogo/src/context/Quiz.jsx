@@ -40,7 +40,9 @@ const quizReducer = (state, action) => {
             currentQuestion: nexQuestion,
             gameStage: endGame ? STAGES[2]: state.gameStage,
         }
-        
+        case "NEW_GAME":
+            return initialState;
+
         
             default:
             return state;
