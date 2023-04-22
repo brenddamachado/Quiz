@@ -1,7 +1,7 @@
 import React from 'react'
 import {useContext} from 'react';
 import { QuizContext } from '../../context/Quiz';
-import WellDone from '../../Img/welldone.svg';
+import WellDone from '../../img/welldone.svg';
 import './GameOver.css'
 
 const GameOver = () => {

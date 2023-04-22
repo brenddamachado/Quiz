@@ -1,5 +1,5 @@
 import React from 'react'
-import quiz from '../../Img/quiz.svg'
+import quiz from '../../img/quiz.svg'
 import './Welcome.css'
 import { useContext } from 'react'
 import { QuizContext } from '../../context/Quiz'
